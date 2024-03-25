@@ -40,3 +40,16 @@ document.addEventListener("DOMContentLoaded", function() {
                  ballRect.top > goalRect.bottom);
     }
 });
+
+    // Teleporteer de bal naar een andere plaats
+    function teleportBall() {
+        const maxX = gameContainer.clientWidth - ball.offsetWidth;
+        const maxY = gameContainer.clientHeight - ball.offsetHeight;
+
+        const newLeft = Math.floor(Math.random() * maxX);
+        const newTop = Math.floor(Math.random() * maxY);
+
+        ball.style.left = newLeft + 'px';
+        ball.style.top = newTop + 'px';
+    }
+});
