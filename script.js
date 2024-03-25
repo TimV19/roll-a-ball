@@ -39,4 +39,16 @@ document.addEventListener("DOMContentLoaded", function() {
                  ballRect.bottom < goalRect.top || 
                  ballRect.top > goalRect.bottom);
     }
+ 
+    // Verplaats het doel naar een nieuwe willekeurige positie
+    function relocateGoal() {
+        const maxX = gameContainer.clientWidth - goal.offsetWidth;
+        const maxY = gameContainer.clientHeight - goal.offsetHeight;
+
+        const newLeft = Math.floor(Math.random() * maxX);
+        const newTop = Math.floor(Math.random() * maxY);
+
+        goal.style.left = newLeft + 'px';
+        goal.style.top = newTop + 'px';
+    }
 });
