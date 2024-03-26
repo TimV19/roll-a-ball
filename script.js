@@ -24,6 +24,44 @@ document.addEventListener("DOMContentLoaded", function() {
             case 'ArrowRight':
                 ball.style.left = (ballLeft + 10) + 'px';
                 break;
+        
+    // Update ball position
+    function updateBallPosition(x, y) {
+        ball.style.left = x + "px";
+        ball.style.top = y + "px";
+    }
+    
+    updateBallPosition(ballX, ballY); // Initial ball position
+    
+    gameContainer.addEventListener("mousemove", function(event) {
+        const rect = gameContainer.getBoundingClientRect();
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+        
+        const buffer = 20; // Adjust this value as needed
+        
+        // Prevent the ball from leaving the left edge
+        if (mouseX < buffer) {
+            ballX = buffer;
+        }
+        
+        // Prevent the ball from leaving the top edge
+        if (mouseY < buffer) {
+            ballY = buffer;
+        }
+        
+        // Prevent the ball from leaving the right edge
+        if (mouseX > rect.width - buffer) {
+            ballX = rect.width - buffer;
+        }
+        
+        // Prevent the ball from leaving the bottom edge
+        if (mouseY > rect.height - buffer) {
+            ballY = rect.height - buffer;
+        }
+        
+        updateBallPosition(ballX, ballY);
+    });
         }
         // Controleer winvoorwaarde
         if (checkCollision(ball, goal)) {
@@ -39,33 +77,5 @@ document.addEventListener("DOMContentLoaded", function() {
                  ballRect.left > goalRect.right || 
                  ballRect.bottom < goalRect.top || 
                  ballRect.top > goalRect.bottom);
-    }
-});
-
-    game-container.addEventListener("ballmove", function(event) {
-        const rect = game-container.getBoundingClientRect();
-        const ballX = event.clientX - rect.left;
-        const ballY = event.clientY - rect.top;
-        
-        const buffer = 20; // Adjust this value as needed
-        
-        // Prevent the ball from leaving the left edge
-        if (ballX < buffer) {
-            window.scrollTo(window.scrollX - 20, window.scrollY);
-        }
-        
-        // Prevent the ball from leaving the top edge
-        if (ballY < buffer) {
-            window.scrollTo(window.scrollX, window.scrollY - 20);
-        }
-        
-        // Prevent the ball from leaving the right edge
-        if (ball > rect.width - buffer) {
-            window.scrollTo(window.scrollX + 20, window.scrollY);
-        }
-        
-        // Prevent the ball from leaving the bottom edge
-        if (ball > rect.height - buffer) {
-            window.scrollTo(window.scrollX, window.scrollY + 20);
     }
 });
