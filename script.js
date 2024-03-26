@@ -51,21 +51,21 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Prevent the ball from leaving the left edge
         if (ballX < buffer) {
-            window.scrollTo(window.scrollX - 5, window.scrollY);
+            window.scrollTo(window.scrollX - 20, window.scrollY);
         }
         
         // Prevent the ball from leaving the top edge
         if (ballY < buffer) {
-            window.scrollTo(window.scrollX, window.scrollY - 5);
+            window.scrollTo(window.scrollX, window.scrollY - 20);
         }
         
         // Prevent the ball from leaving the right edge
         if (ball > rect.width - buffer) {
-            window.scrollTo(window.scrollX + 5, window.scrollY);
+            window.scrollTo(window.scrollX + 20, window.scrollY);
         }
         
         // Prevent the ball from leaving the bottom edge
         if (ball > rect.height - buffer) {
-            window.scrollTo(window.scrollX, window.scrollY + 5);
+            window.scrollTo(window.scrollX, window.scrollY + 20);
     }
 });
