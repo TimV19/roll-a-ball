@@ -24,29 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
             case 'ArrowRight':
                 ball.style.left = (ballLeft + 10) + 'px';
                 break;
-        
-        // Prevent the ball from leaving the left edge
-        if (mouseX < rect.width + buffer) {
-            ballX = rect.width + buffer;
-        }
-        
-        // Prevent the ball from leaving the top edge
-        if (mouseY < rect.height + buffer) {
-            ballY = rect.height + buffer;
-        }
-        
-        // Prevent the ball from leaving the right edge
-        if (mouseX > rect.width - buffer) {
-            ballX = rect.width - buffer;
-        }
-        
-        // Prevent the ball from leaving the bottom edge
-        if (mouseY > rect.height - buffer) {
-            ballY = rect.height - buffer;
-        }
-        
-        updateBallPosition(ballX, ballY);
-    });
        
         }
         // Controleer winvoorwaarde
