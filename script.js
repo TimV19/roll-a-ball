@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
         
         // Prevent the ball from leaving the left edge
-        if (mouseX < buffer) {
-            ballX = buffer;
+        if (mouseX < rect.width + buffer) {
+            ballX = rect.width + buffer;
         }
         
         // Prevent the ball from leaving the top edge
-        if (mouseY < buffer) {
-            ballY = buffer;
+        if (mouseY < rect.height + buffer) {
+            ballY = rect.height + buffer;
         }
         
         // Prevent the ball from leaving the right edge
