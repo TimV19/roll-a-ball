@@ -25,21 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 ball.style.left = (ballLeft + 10) + 'px';
                 break;
         
-    // Update ball position
-    function updateBallPosition(x, y) {
-        ball.style.left = x + "px";
-        ball.style.top = y + "px";
-    }
-    
-    updateBallPosition(ballX, ballY); // Initial ball position
-    
-    gameContainer.addEventListener("mousemove", function(event) {
-        const rect = gameContainer.getBoundingClientRect();
-        const mouseX = event.clientX - rect.left;
-        const mouseY = event.clientY - rect.top;
-        
-        const buffer = 20; // Adjust this value as needed
-        
         // Prevent the ball from leaving the left edge
         if (mouseX < buffer) {
             ballX = buffer;
@@ -62,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         updateBallPosition(ballX, ballY);
     });
+       
         }
         // Controleer winvoorwaarde
         if (checkCollision(ball, goal)) {
